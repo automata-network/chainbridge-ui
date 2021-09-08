@@ -1,0 +1,34 @@
+@font-face {
+  font-family: 'NeueMontreal';
+  src: url(/chainbridge-ui/static/media/NeueMontreal-Regular.c31d7387.ttf) format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NeueMontreal';
+  src: url(/chainbridge-ui/static/media/NeueMontreal-Italic.735e60ad.ttf) format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'NeueMontreal';
+  src: url(/chainbridge-ui/static/media/NeueMontreal-Medium.7dd0028b.ttf) format('truetype');
+  font-weight: 600;
+  font-display: swap;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'NeueMontreal';
+  src: url(/chainbridge-ui/static/media/NeueMontreal-MediumItalic.fb7ccc8a.ttf) format('truetype');
+  font-weight: 600;
+  font-display: swap;
+  font-style: italic;
+}
+
+/*# sourceMappingURL=18.df6aa5f2.chunk.css.map*/
