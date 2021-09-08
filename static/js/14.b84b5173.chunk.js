@@ -1,0 +1,2 @@
+(this["webpackJsonp@chainsafe/chainbridge-ui"]=this["webpackJsonp@chainsafe/chainbridge-ui"]||[]).push([[14],{1311:function(e){e.exports=JSON.parse('{"ResourceId":"[u8; 32]","DepositNonce":"u64","ProposalVotes":{"votes_for":"Vec<AccountId>","votes_against":"Vec<AccountId>","status":"enum"},"BridgeTokenId":"U256","BridgeChainId":"u8"}')}}]);
+//# sourceMappingURL=14.b84b5173.chunk.js.map
