@@ -20,7 +20,11 @@ import { Tokens } from "@chainsafe/web3-context/dist/context/tokensReducer";
 import { BigNumber as BN } from "bignumber.js";
 import { UnsubscribePromise, VoidFn } from "@polkadot/api/types";
 import { utils } from "ethers";
-import { SubstrateBridgeConfig } from "../../chainbridgeConfig";
+import {
+  SubstrateBridgeConfig,
+  chainbridgeConfig,
+} from "../../chainbridgeConfig";
+import { hasTokenSupplies } from "./EVMAdaptors/helpers";
 
 export const SubstrateHomeAdaptorProvider = ({
   children,
@@ -103,7 +107,7 @@ export const SubstrateHomeAdaptorProvider = ({
       const currentId = Number(
         api.consts[
           (homeChainConfig as SubstrateBridgeConfig).chainbridgePalletName
-        ].chainIdentity.toHuman()
+        ].bridgeChainId.toHuman()
       );
       if (homeChainConfig?.chainId !== currentId) {
         const correctConfig = homeChains.find(
@@ -285,6 +289,38 @@ export const SubstrateHomeAdaptorProvider = ({
     return "Not implemented";
   };
 
+  const handleCheckSupplies = useCallback(
+    async (
+      amount: number,
+      tokenAddress: string,
+      destinationChainId: number
+    ) => {
+      if (homeChainConfig) {
+        const destinationChain = chainbridgeConfig.chains.find(
+          (c) => c.chainId === destinationChainId
+        );
+        const token = homeChainConfig.tokens.find(
+          (token) => token.address === tokenAddress
+        );
+
+        if (destinationChain?.type === "Ethereum" && token) {
+          const hasSupplies = await hasTokenSupplies(
+            destinationChain,
+            tokens,
+            token,
+            amount,
+            tokenAddress
+          );
+          if (!hasSupplies) {
+            return false;
+          }
+        }
+        return true;
+      }
+    },
+    [homeChainConfig, tokens]
+  );
+
   return (
     <HomeBridgeContext.Provider
       value={{
@@ -311,7 +347,7 @@ export const SubstrateHomeAdaptorProvider = ({
         nativeTokenBalance: 0,
         accounts: accounts,
         selectAccount: selectAccount,
-        handleCheckSupplies: undefined,
+        handleCheckSupplies,
       }}
     >
       {children}

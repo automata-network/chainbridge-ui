@@ -53,7 +53,7 @@ const NetworkSelectModal = () => {
             <Button onClick={() => setWalletType("Ethereum")}>
               Use Ethereum wallet
             </Button>
-            <Button onClick={() => setWalletType("Substrate")}>
+            <Button onClick={() => setWalletType("Substrate")} disabled>
               Use Substrate wallet
             </Button>
           </section>

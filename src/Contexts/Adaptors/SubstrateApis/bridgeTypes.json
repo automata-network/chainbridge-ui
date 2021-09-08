@@ -1,6 +1,4 @@
 {
-  "chainbridge::ChainId": "u8",
-  "ChainId": "u8",
   "ResourceId": "[u8; 32]",
   "DepositNonce": "u64",
   "ProposalVotes": {
@@ -8,11 +6,6 @@
     "votes_against": "Vec<AccountId>",
     "status": "enum"
   },
-  "Erc721Token": {
-    "id": "TokenId",
-    "metadata": "Vec<u8>"
-  },
-  "TokenId": "U256",
-  "Address": "AccountId",
-  "LookupSource": "AccountId"
+  "BridgeTokenId": "U256",
+  "BridgeChainId": "u8"
 }

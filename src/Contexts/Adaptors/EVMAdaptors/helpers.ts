@@ -27,7 +27,10 @@ export function getProvider(destinationChainConfig?: any) {
   let provider: any;
   if (isCelo(destinationChainConfig?.networkId)) {
     provider = new CeloProvider(destinationChainConfig?.rpcUrl);
-  } else if (destinationChainConfig?.rpcUrl.startsWith("wss")) {
+  } else if (
+    destinationChainConfig?.rpcUrl.startsWith("wss") ||
+    destinationChainConfig?.rpcUrl.startsWith("ws")
+  ) {
     if (destinationChainConfig.rpcUrl.includes("infura")) {
       const parts = destinationChainConfig.rpcUrl.split("/");
 

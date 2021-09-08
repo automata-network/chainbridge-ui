@@ -128,6 +128,10 @@ const ChainbridgeProvider = ({ children }: IChainbridgeContextProps) => {
     tokenAddress: string,
     destinationChainId: number
   ) => {
+    console.log("handleCheckSupplies", handleCheckSupplies);
+    console.log("chainConfig", chainConfig);
+    console.log("destinationChainConfig", destinationChainConfig);
+
     if (handleCheckSupplies && chainConfig && destinationChainConfig) {
       return await handleCheckSupplies(
         amount,
