@@ -1,0 +1,2 @@
+(this["webpackJsonp@chainsafe/chainbridge-ui"]=this["webpackJsonp@chainsafe/chainbridge-ui"]||[]).push([[14],{1311:function(e){e.exports=JSON.parse('{"chainbridge::ChainId":"u8","ChainId":"u8","ResourceId":"[u8; 32]","DepositNonce":"u64","ProposalVotes":{"votes_for":"Vec<AccountId>","votes_against":"Vec<AccountId>","status":"enum"},"Erc721Token":{"id":"TokenId","metadata":"Vec<u8>"},"TokenId":"U256","Address":"MultiAddress","LookupSource":"MultiAddress","BridgeTokenId":"U256","BridgeChainId":"u8"}')}}]);
+//# sourceMappingURL=14.b333f84a.chunk.js.map
