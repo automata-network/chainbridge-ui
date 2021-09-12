@@ -13,6 +13,8 @@
     "metadata": "Vec<u8>"
   },
   "TokenId": "U256",
-  "Address": "AccountId",
-  "LookupSource": "AccountId"
+  "Address": "MultiAddress",
+  "LookupSource": "MultiAddress",
+  "BridgeTokenId": "U256",
+  "BridgeChainId": "u8"
 }
