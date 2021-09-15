@@ -18,6 +18,7 @@ export type BridgeConfig = {
   tokens: TokenConfig[];
   nativeTokenSymbol: string;
   decimals: number;
+  existential?: number;
 };
 
 export type EvmBridgeConfig = BridgeConfig & {
@@ -85,19 +86,13 @@ export const chainbridgeConfig: ChainbridgeConfig = {
       transferPalletName: "bridgeTransfer",
       transferFunctionName: "transferNative",
       typesFileName: "bridgeTypes.json",
+      existential: 0.01,
       tokens: [
         {
           address: "substrate-native",
           name: "ATA",
           symbol: "ATA",
           resourceId: "substratsubme-native",
-        },
-        {
-          address: process.env.REACT_APP_ETHEREUM_ERC20_TOKEN_ADDRESS as string,
-          name: process.env.REACT_APP_ETHEREUM_ERC20_NAME as string,
-          symbol: process.env.REACT_APP_ETHEREUM_ERC20_SYMBOL as string,
-          // imageUri: ATAIcon,
-          resourceId: process.env.REACT_APP_ETHEREUM_RESOURCE_ID as string,
         },
       ],
     },

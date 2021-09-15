@@ -27,6 +27,7 @@ import ETHIcon from "../../media/tokens/eth.svg";
 import WETHIcon from "../../media/tokens/weth.svg";
 import DAIIcon from "../../media/tokens/dai.svg";
 import celoUSD from "../../media/tokens/cusd.svg";
+import { chainbridgeConfig } from "../../chainbridgeConfig";
 
 const PredefinedIcons: any = {
   ETHIcon: ETHIcon,
@@ -312,6 +313,14 @@ const TransferPage = () => {
       )
       .test("Min", "Less than minimum", (value) => {
         if (value) {
+          if (destinationChainConfig?.type === "Substrate") {
+            const existential = chainbridgeConfig.chains.find(
+              (c) => c.type === "Substrate"
+            )?.existential;
+            if (existential) {
+              return parseFloat(value) > existential;
+            }
+          }
           return parseFloat(value) > 0;
         }
         return false;
