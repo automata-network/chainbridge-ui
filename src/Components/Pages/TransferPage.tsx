@@ -289,7 +289,7 @@ const TransferPage = () => {
             return parseFloat(value) <= tokens[preflightDetails.token].balance;
           } else {
             return (
-              parseFloat(value + (bridgeFee || 0)) <=
+              parseFloat(value) + (bridgeFee || 0) <=
               tokens[preflightDetails.token].balance
             );
           }

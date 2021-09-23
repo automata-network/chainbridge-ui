@@ -408,7 +408,7 @@ export const SubstrateDestinationAdaptorProvider = ({
               "phase=" +
               phase.toString()
           );
-          console.log(event.meta.documentation.toString());
+          // console.log(event.meta.documentation.toString());
           // loop through each of the parameters, displaying the type and data
           event.data.forEach((data, index) => {
             console.log(types[index].type + ";" + data.toString());
