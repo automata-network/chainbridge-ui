@@ -1,4 +1,4 @@
-# Chainbridge UI
+# Automata Token Bridge UI
 
 ## Table of Contents
 
