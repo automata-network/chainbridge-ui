@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/chainbridge-ui/precache-manifest.5a28bac5e9c31da04ebe64603567344b.js"
+  "/chainbridge-ui/precache-manifest.b5cb116deb23962e257cc76995970bc3.js"
 );
 
 self.addEventListener('message', (event) => {
