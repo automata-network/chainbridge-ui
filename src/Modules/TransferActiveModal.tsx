@@ -293,7 +293,6 @@ const TransferActiveModal: React.FC<ITransferActiveModalProps> = ({
                   size="small"
                   className={classes.button}
                   variant="outline"
-                  disabled
                 >
                   View transaction
                 </Button>
