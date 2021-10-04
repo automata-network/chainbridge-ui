@@ -61,7 +61,7 @@ export const chainbridgeConfig: ChainbridgeConfig = {
       rpcUrl: process.env.REACT_APP_ETHEREUM_RPC_URL as string,
       blockExplorer: process.env.REACT_APP_ETHEREUM_EXPLORER_URL as string,
       type: "Ethereum",
-      nativeTokenSymbol: "ETH",
+      nativeTokenSymbol: "rETH",
       tokens: [
         {
           address: process.env.REACT_APP_ETHEREUM_ERC20_TOKEN_ADDRESS as string,
@@ -80,7 +80,7 @@ export const chainbridgeConfig: ChainbridgeConfig = {
       decimals: 18,
       rpcUrl: process.env.REACT_APP_ATA_RPC_URL as string,
       type: "Substrate",
-      nativeTokenSymbol: "ATA",
+      nativeTokenSymbol: "FST",
       chainbridgePalletName: "chainBridge",
       bridgeFeeValue: 0,
       transferPalletName: "bridgeTransfer",
@@ -90,8 +90,8 @@ export const chainbridgeConfig: ChainbridgeConfig = {
       tokens: [
         {
           address: "substrate-native",
-          name: "ATA",
-          symbol: "ATA",
+          name: "FiniteState",
+          symbol: "FST",
           resourceId: "substratsubme-native",
         },
       ],
