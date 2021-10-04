@@ -171,7 +171,11 @@ export const SubstrateHomeAdaptorProvider = ({
         .then(() => {
           // web3Account resolves with the injected accounts
           // or an empty array
-          web3Accounts()
+          web3Accounts({
+            ss58Format: (homeChains.find(
+              (item) => item.type === "Substrate"
+            ) as SubstrateBridgeConfig)?.ss58Prefix,
+          })
             .then((accounts) => {
               return accounts.map(({ address, meta }) => ({
                 address,

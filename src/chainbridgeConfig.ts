@@ -39,6 +39,7 @@ export type SubstrateBridgeConfig = BridgeConfig & {
   transferPalletName: string;
   transferFunctionName: string;
   typesFileName: string;
+  ss58Prefix?: number;
 };
 
 export type ChainbridgeConfig = {
@@ -80,18 +81,22 @@ export const chainbridgeConfig: ChainbridgeConfig = {
       decimals: 18,
       rpcUrl: process.env.REACT_APP_ATA_RPC_URL as string,
       type: "Substrate",
-      nativeTokenSymbol: "FST",
+      nativeTokenSymbol: process.env
+        .REACT_APP_ATA_NATIVE_TOKEN_SYMBOL as string,
       chainbridgePalletName: "chainBridge",
+      ss58Prefix: +((process.env
+        .REACT_APP_ATA_SS58_PREFIX as unknown) as number),
       bridgeFeeValue: 0,
       transferPalletName: "bridgeTransfer",
       transferFunctionName: "transferNative",
       typesFileName: "bridgeTypes.json",
-      existential: 0.01,
+      existential: +((process.env
+        .REACT_APP_ATA_SS58_PREFIX as unknown) as number),
       tokens: [
         {
           address: "substrate-native",
-          name: "FiniteState",
-          symbol: "FST",
+          name: process.env.REACT_APP_ATA_NATIVE_TOKEN_NAME as string,
+          symbol: process.env.REACT_APP_ATA_NATIVE_TOKEN_SYMBOL as string,
           resourceId: "substratsubme-native",
         },
       ],
