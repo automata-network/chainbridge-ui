@@ -90,8 +90,7 @@ export const chainbridgeConfig: ChainbridgeConfig = {
       transferPalletName: "bridgeTransfer",
       transferFunctionName: "transferNative",
       typesFileName: "bridgeTypes.json",
-      existential: +((process.env
-        .REACT_APP_ATA_SS58_PREFIX as unknown) as number),
+      existential: 0.01,
       tokens: [
         {
           address: "substrate-native",
