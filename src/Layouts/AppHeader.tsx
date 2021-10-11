@@ -83,7 +83,7 @@ const AppHeader: React.FC<IAppHeader> = () => {
         {/* ADD LOGO HERE */}
         {/* <div className={classes.logo}>
         </div> */}
-        <Typography variant="h4">Automata Token Bridge</Typography>
+        <Typography variant="h4">Automata ContextFree Token Bridge</Typography>
       </div>
       <section className={classes.state}>
         {!isReady ? (

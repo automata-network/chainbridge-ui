@@ -37,18 +37,12 @@ const AboutDrawer: React.FC<IAboutDrawerProps> = ({
   return (
     <CustomDrawer onClose={close} open={open} className={classes.root}>
       <Typography variant="h1" component="h4">
-        What is Automata Token Bridge?
+        What is Automata ContextFree Token Bridge?
       </Typography>
       <Typography component="p" variant="h5">
-        Automata Token Bridge is a modular multi-directional blockchain bridge
-        to allow token transfer between Ethereum based network and Substrate
-        based network. This should enable users to specify a destination
-        blockchain from their source chain, and send data to that blockchain for
-        consumption on the destination chain. <br />
-        <br />
-        This could be a token that is locked on ChainA and redeemed on ChainB,
-        or an operation that is executed on a destination chain and initiated on
-        the source chain.
+        Automata ContextFree Token Bridge is a modular multi-directional blockchain bridge
+        to allow token transfer between Ropsten - an Ethereum based network, and
+        ContextFree - a Substrate based network built by Automata team.
       </Typography>
       <section className={classes.buttons}>
         <Button onClick={() => close()} variant="outline">
