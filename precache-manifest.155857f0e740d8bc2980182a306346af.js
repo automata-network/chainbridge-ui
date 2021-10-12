@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "20e592e7efc429b3d171c160338bbecc",
+    "revision": "6d3144dbc005a4d98b3cdc479b17e5f9",
     "url": "/chainbridge-ui/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/chainbridge-ui/static/css/18.df6aa5f2.chunk.css"
   },
   {
-    "revision": "6ac12b50c45d137cce24",
+    "revision": "ec487d4f6317714ad087",
     "url": "/chainbridge-ui/static/css/main.2b10895c.chunk.css"
   },
   {
@@ -288,8 +288,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/chainbridge-ui/static/js/9.6d42832c.chunk.js"
   },
   {
-    "revision": "6ac12b50c45d137cce24",
-    "url": "/chainbridge-ui/static/js/main.3b74b9f2.chunk.js"
+    "revision": "ec487d4f6317714ad087",
+    "url": "/chainbridge-ui/static/js/main.0dbaba7e.chunk.js"
   },
   {
     "revision": "9b87dec229abf2035fbd",
