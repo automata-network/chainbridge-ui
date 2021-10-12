@@ -224,7 +224,9 @@ export const SubstrateHomeAdaptorProvider = ({
       destinationChainId: number
     ) => {
       if (api && address) {
-        const allAccounts = await web3Accounts();
+        const allAccounts = await web3Accounts({
+          ss58Format: (homeChainConfig as SubstrateBridgeConfig).ss58Prefix,
+        });
         const targetAccount = allAccounts.find(
           (item) => item.address === address
         );
