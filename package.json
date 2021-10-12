@@ -2,7 +2,7 @@
   "name": "@chainsafe/chainbridge-ui",
   "version": "1.0.0",
   "private": true,
-  "homepage": "http://automata-network.github.io/chainbridge-ui/",
+  "homepage": "http://cf-bridge.ata.network",
   "dependencies": {
     "@babel/core": "^7.12.3",
     "@babel/runtime": "^7.12.1",
