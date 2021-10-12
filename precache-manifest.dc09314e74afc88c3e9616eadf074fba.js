@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c93d5179b256417026eb05e893d1e899",
+    "revision": "20e592e7efc429b3d171c160338bbecc",
     "url": "/chainbridge-ui/index.html"
   },
   {
@@ -8,20 +8,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/chainbridge-ui/static/css/18.df6aa5f2.chunk.css"
   },
   {
-    "revision": "64b3c83f39320f8e9c51",
+    "revision": "6ac12b50c45d137cce24",
     "url": "/chainbridge-ui/static/css/main.2b10895c.chunk.css"
   },
   {
-    "revision": "8f6f9dbf5d0ff2828f2e",
-    "url": "/chainbridge-ui/static/js/0.7b9a4054.chunk.js"
+    "revision": "5388a16f973fa1c72102",
+    "url": "/chainbridge-ui/static/js/0.6f1a6ab2.chunk.js"
   },
   {
     "revision": "4efae155067c652cfc50",
     "url": "/chainbridge-ui/static/js/1.a811bee4.chunk.js"
   },
   {
-    "revision": "e08afbb6d72d42aed451",
-    "url": "/chainbridge-ui/static/js/10.ec00af36.chunk.js"
+    "revision": "d9e8889f0e8fe62105cc",
+    "url": "/chainbridge-ui/static/js/10.d2494308.chunk.js"
   },
   {
     "revision": "9187b1a4444ea0d4a471",
@@ -64,8 +64,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/chainbridge-ui/static/js/21.7e7a8ac5.chunk.js"
   },
   {
-    "revision": "c7da76ffc1b66aa03132",
-    "url": "/chainbridge-ui/static/js/22.305a320f.chunk.js"
+    "revision": "40a7e0d0a91017ac77e2",
+    "url": "/chainbridge-ui/static/js/22.cbba3858.chunk.js"
   },
   {
     "revision": "fff9ad70eb30115112fb",
@@ -288,12 +288,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/chainbridge-ui/static/js/9.6d42832c.chunk.js"
   },
   {
-    "revision": "64b3c83f39320f8e9c51",
-    "url": "/chainbridge-ui/static/js/main.845461d8.chunk.js"
+    "revision": "6ac12b50c45d137cce24",
+    "url": "/chainbridge-ui/static/js/main.3b74b9f2.chunk.js"
   },
   {
-    "revision": "756cb34b4c6033ce0d3d",
-    "url": "/chainbridge-ui/static/js/runtime-main.c34c4686.js"
+    "revision": "9b87dec229abf2035fbd",
+    "url": "/chainbridge-ui/static/js/runtime-main.c04403e0.js"
   },
   {
     "revision": "735e60ade8aa635c86d134630a4f1e28",
