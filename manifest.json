@@ -1,6 +1,6 @@
 {
-  "short_name": "Automata Token Bridge",
-  "name": "Automata Token Bridge",
+  "short_name": "Automata ContextFree Token Bridge",
+  "name": "Automata ContextFree Token Bridge",
   "icons": [
     {
       "src": "Automata-logo.png",
