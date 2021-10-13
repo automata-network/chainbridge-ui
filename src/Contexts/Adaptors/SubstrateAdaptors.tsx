@@ -41,6 +41,7 @@ export const SubstrateHomeAdaptorProvider = ({
     setDepositNonce,
     handleSetHomeChain,
     homeChains,
+    destinationChainConfig,
   } = useNetworkManager();
 
   const [relayerThreshold, setRelayerThreshold] = useState<number | undefined>(
@@ -86,11 +87,9 @@ export const SubstrateHomeAdaptorProvider = ({
 
       const fee = config.bridgeFeeFunctionName
         ? new BN(
-            Number(
-              await api.query[config.transferPalletName][
-                config.bridgeFeeFunctionName
-              ]()
-            )
+            ((await api.query[config.transferPalletName][
+              config.bridgeFeeFunctionName
+            ](destinationChainConfig?.chainId)) as any)[0]
           )
             .shiftedBy(-config.decimals)
             .toNumber()
@@ -98,9 +97,11 @@ export const SubstrateHomeAdaptorProvider = ({
         ? config.bridgeFeeValue
         : 0;
 
+      console.log("fee:", fee);
+
       setBridgeFee(fee);
     }
-  }, [api, homeChainConfig]);
+  }, [api, homeChainConfig, destinationChainConfig]);
 
   const confirmChainID = useCallback(async () => {
     if (api) {

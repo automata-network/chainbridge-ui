@@ -87,6 +87,7 @@ export const chainbridgeConfig: ChainbridgeConfig = {
       ss58Prefix: +((process.env
         .REACT_APP_ATA_SS58_PREFIX as unknown) as number),
       bridgeFeeValue: 0,
+      bridgeFeeFunctionName: "bridgeFee",
       transferPalletName: "bridgeTransfer",
       transferFunctionName: "transferNative",
       typesFileName: "bridgeTypes.json",
