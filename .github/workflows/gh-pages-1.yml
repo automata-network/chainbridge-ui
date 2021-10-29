@@ -2,7 +2,7 @@ name: Build and deploy
 
 on:
   push:
-    branches: [main]
+    branches: [mainnet_bridge_test]
 
 jobs:
   build-ethereum-kovan:
@@ -14,7 +14,7 @@ jobs:
 
       - name: Install and Build
         env:
-          REACT_APP_ETHEREUM_RPC_URL: ${{ secrets.KOVAN_RPC_URL }}
+          REACT_APP_ETHEREUM_RPC_URL: ${{ secrets.RPC_URL }}
         run: |
           rm -f .env
           cp .env.dev .env
@@ -26,4 +26,5 @@ jobs:
         with:
           branch: gh-pages
           folder: build
-          ssh-key: ${{ secrets.ETHEREUM_KOVAN_DEPLOY_KEY }}
+          repository-name: automata-network/mainnet-chainbridge-web
+          ssh-key: ${{ secrets.MAINET_DEPLOY_KEY }}
