@@ -85,19 +85,19 @@ export const SubstrateHomeAdaptorProvider = ({
     if (api) {
       const config = homeChainConfig as SubstrateBridgeConfig;
 
-      const fee = config.bridgeFeeFunctionName
-        ? new BN(
-            ((await api.query[config.transferPalletName][
-              config.bridgeFeeFunctionName
-            ](destinationChainConfig?.chainId)) as any)[0]
-          )
-            .shiftedBy(-config.decimals)
-            .toNumber()
-        : config.bridgeFeeValue
-        ? config.bridgeFeeValue
-        : 0;
+      let fee: number;
 
-      console.log("fee:", fee);
+      if (config.bridgeFeeFunctionName && destinationChainConfig) {
+        fee = new BN(
+          ((await api.query[config.transferPalletName][
+            config.bridgeFeeFunctionName
+          ](destinationChainConfig?.chainId)) as any)[0]
+        )
+          .shiftedBy(-config.decimals)
+          .toNumber();
+      } else {
+        fee = config.bridgeFeeValue ? config.bridgeFeeValue : 0;
+      }
 
       setBridgeFee(fee);
     }
@@ -236,7 +236,8 @@ export const SubstrateHomeAdaptorProvider = ({
             api,
             amount,
             recipient,
-            destinationChainId
+            destinationChainId,
+            homeChainConfig?.chainId || 256
           );
 
           const injector = await web3FromSource(targetAccount.meta.source);
