@@ -169,7 +169,7 @@ const ChainbridgeProvider = ({ children }: IChainbridgeContextProps) => {
         checkSupplies,
       }}
     >
-      <NetworkSelectModal />
+      {/*<NetworkSelectModal />*/}
       {children}
     </ChainbridgeContext.Provider>
   );

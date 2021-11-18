@@ -4,7 +4,6 @@
   @include size;
   position: relative;
   @include flex(column, flex-start, flex-start);
-  min-width: 1920px;
 
   .header {
     padding: 0 254px;

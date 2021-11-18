@@ -33,8 +33,7 @@ const AppWrapper: React.FC = ({ children }) => {
         <div className={styles.page}>
           <div className={styles.left_top} />
           <div className={styles.right_bottom} />
-          {/*{children}*/}
-          xxx
+          {children}
         </div>
         <div className={styles.footer}>
           <AutomataIcon className={styles.powered} />
