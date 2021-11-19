@@ -30,6 +30,7 @@ import celoUSD from "../../media/tokens/cusd.svg";
 import { chainbridgeConfig } from "../../chainbridgeConfig";
 import { ReactComponent as Logo } from "../../assets/img/logo.svg";
 import { ReactComponent as WalletLogo } from "../../assets/img/wallet-select-logo.svg";
+import { Divider } from "semantic-ui-react";
 
 const PredefinedIcons: any = {
   ETHIcon: ETHIcon,
@@ -104,6 +105,39 @@ const useStyles = makeStyles(({ constants, palette }: ITheme) =>
       color: "#ABABAB",
       margin: "12px 0 29px",
       textAlign: "center",
+    },
+    EthWalletBtn: {
+      width: "100%",
+      height: "45px",
+      fontSize: "14px",
+      lineHeight: "45px",
+      fontWeight: 500,
+      background: "#E98F39",
+      borderRadius: "5px",
+      color: "#FFFFFF",
+      textAlign: "center",
+      letterSpacing: "0.05em",
+      cursor: "pointer",
+      "&:hover": {
+        opacity: 0.7,
+      },
+    },
+    SubsWalletBtn: {
+      width: "100%",
+      height: "45px",
+      fontSize: "14px",
+      lineHeight: "45px",
+      fontWeight: 500,
+      color: "#E98F39",
+      borderRadius: "5px",
+      background: "#FFFFFF",
+      textAlign: "center",
+      border: "1px solid #E98F39",
+      letterSpacing: "0.05em",
+      cursor: "pointer",
+      "&:hover": {
+        opacity: 0.7,
+      },
     },
     walletArea: {
       display: "flex",
@@ -426,6 +460,19 @@ const TransferPage = () => {
             <div className={classes.walletDesc}>
               ContextFree by Automata is offering a token bridge service, <br />
               so pick a transfer type and connect your wallet to get started!
+            </div>
+            <div
+              className={classes.EthWalletBtn}
+              onClick={() => setWalletType("Ethereum")}
+            >
+              Connect with Ethereum Wallet (ERC20 to Native)
+            </div>
+            <Divider horizontal>Or</Divider>
+            <div
+              className={classes.SubsWalletBtn}
+              onClick={() => setWalletType("Substrate")}
+            >
+              Connect with Substrate Wallet (Native to ERC20)
             </div>
           </div>
         ) : (
