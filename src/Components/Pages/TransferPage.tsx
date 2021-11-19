@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { makeStyles, createStyles, ITheme } from "@chainsafe/common-theme";
-import AboutDrawer from "../../Modules/AboutDrawer";
-import ChangeNetworkDrawer from "../../Modules/ChangeNetworkDrawer";
+// import AboutDrawer from "../../Modules/AboutDrawer";
+// import ChangeNetworkDrawer from "../../Modules/ChangeNetworkDrawer";
 import PreflightModalTransfer from "../../Modules/PreflightModalTransfer";
 import {
   Button,
@@ -30,7 +30,10 @@ import celoUSD from "../../media/tokens/cusd.svg";
 import { chainbridgeConfig } from "../../chainbridgeConfig";
 import { ReactComponent as Logo } from "../../assets/img/logo.svg";
 import { ReactComponent as WalletLogo } from "../../assets/img/wallet-select-logo.svg";
+import { ReactComponent as EthIcon } from "../../assets/img/eth.svg";
+import { ReactComponent as AtaIcon } from "../../assets/img/ata.svg";
 import { Divider } from "semantic-ui-react";
+import { useDestinationBridge } from "../../Contexts/DestinationBridgeContext";
 
 const PredefinedIcons: any = {
   ETHIcon: ETHIcon,
@@ -139,6 +142,12 @@ const useStyles = makeStyles(({ constants, palette }: ITheme) =>
         opacity: 0.7,
       },
     },
+    transferArea: {
+      padding: "30px",
+      fontSize: "16px",
+      fontWeight: 400,
+      color: "#7D7D7D",
+    },
     walletArea: {
       display: "flex",
       flexDirection: "column",
@@ -165,16 +174,32 @@ const useStyles = makeStyles(({ constants, palette }: ITheme) =>
     },
     changeButton: {
       cursor: "pointer",
+      color: "#FFA41B",
+      "&:hover": {
+        opacity: 0.7,
+      },
+    },
+    networkIcon: {
+      width: "13px",
+      height: "13px",
+      marginRight: "10px",
     },
     networkName: {
+      height: "45px",
       padding: `${constants.generalUnit * 2}px ${
         constants.generalUnit * 1.5
       }px`,
-      border: `1px solid ${palette.additional["gray"][6]}`,
+      border: "1px solid #E5E5E5",
       borderRadius: 2,
-      color: palette.additional["gray"][9],
       marginTop: constants.generalUnit,
       marginBottom: constants.generalUnit * 3,
+      display: "flex",
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "flex-start",
+      fontSize: "16px",
+      fontWeight: 400,
+      color: "#B0B0B0",
     },
     formArea: {
       "&.disabled": {
@@ -200,8 +225,11 @@ const useStyles = makeStyles(({ constants, palette }: ITheme) =>
     tokenInput: {
       margin: 0,
       "& > div": {
-        height: 32,
         "& input": {
+          height: 47,
+          fontSize: "16px",
+          fontWeight: 400,
+          color: "#B0B0B0",
           borderBottomRightRadius: 0,
           borderTopRightRadius: 0,
           borderRight: 0,
@@ -213,25 +241,28 @@ const useStyles = makeStyles(({ constants, palette }: ITheme) =>
       },
     },
     maxButton: {
-      height: 32,
+      height: 47,
+      fontSize: "16px",
+      fontWeight: 400,
       borderBottomLeftRadius: 0,
       borderTopLeftRadius: 0,
       left: -1,
-      color: palette.additional["gray"][8],
-      backgroundColor: palette.additional["gray"][3],
-      borderColor: palette.additional["gray"][6],
+      color: "#FFFFFF",
+      borderColor: "#E98F39",
+      backgroundColor: "#E98F39",
       "&:hover": {
-        borderColor: palette.additional["gray"][6],
-        backgroundColor: palette.additional["gray"][7],
-        color: palette.common.white.main,
+        color: "#FFFFFF",
+        borderColor: "#E98F39",
+        backgroundColor: "#E98F39",
+        opacity: 0.7,
       },
       "&:focus": {
-        borderColor: palette.additional["gray"][6],
+        // borderColor: palette.additional["gray"][6],
       },
     },
     currencySelector: {
       width: "40%",
-      paddingRight: constants.generalUnit,
+      paddingRight: "22px",
       "& *": {
         cursor: "pointer",
       },
@@ -240,11 +271,37 @@ const useStyles = makeStyles(({ constants, palette }: ITheme) =>
     address: {
       margin: 0,
       marginBottom: constants.generalUnit * 3,
+      "& > div > label > span": {
+        fontSize: "16px",
+        fontWeight: 400,
+        color: "#7D7D7D",
+      },
     },
-    addressInput: {},
+    addressInput: {
+      "& > div > input": {
+        height: 47,
+        fontSize: "16px",
+        fontWeight: 400,
+        color: "#B0B0B0",
+        "&::-webkit-input-placeholder": {
+          color: "#d0d0d0",
+        },
+      },
+    },
     generalInput: {
       "& > span": {
         marginBottom: constants.generalUnit,
+        fontSize: "16px",
+        fontWeight: 400,
+        color: "#7D7D7D",
+      },
+      "& > div > div": {
+        height: "45px",
+      },
+      "& > div > div > div > div": {
+        fontSize: "16px",
+        fontWeight: 400,
+        color: "#B0B0B0",
       },
     },
     faqButton: {
@@ -278,17 +335,46 @@ const useStyles = makeStyles(({ constants, palette }: ITheme) =>
       justifyContent: "space-between",
       marginBottom: constants.generalUnit,
       "& > *": {
+        fontSize: "16px",
+        fontWeight: 400,
+        color: "#7D7D7D",
         display: "block",
         width: "50%",
-        color: palette.additional["gray"][8],
         marginBottom: constants.generalUnit / 2,
         "&:nth-child(even)": {
           textAlign: "right",
+          color: "#B0B0B0",
         },
       },
     },
     accountSelector: {
       marginBottom: 24,
+    },
+    submitBtn: {
+      height: 47,
+      marginTop: 20,
+      background: "#E98F39",
+      borderRadius: 5,
+      color: "#FFFFFF",
+      fontSize: "16px",
+      fontWeight: 500,
+      border: "none",
+      "&:hover": {
+        border: "none",
+        background: "#E98F39",
+        color: "#FFFFFF",
+        opacity: 0.7,
+      },
+    },
+    faq: {
+      color: "#D3D3D3",
+      marginTop: 11,
+      fontSize: 12,
+      letterSpacing: -0.18,
+    },
+    faqLink: {
+      color: "#E98F39",
+      textDecoration: "none",
     },
   })
 );
@@ -302,7 +388,9 @@ type PreflightDetails = {
 
 const TransferPage = () => {
   const classes = useStyles();
-  const { walletType, setWalletType } = useNetworkManager();
+  const destinationBridge = useDestinationBridge();
+
+  const { walletType, setWalletType, handleSetHomeChain } = useNetworkManager();
 
   const {
     deposit,
@@ -319,10 +407,10 @@ const TransferPage = () => {
     checkSupplies,
   } = useChainbridge();
 
-  const { accounts, selectAccount } = useHomeBridge();
-  const [aboutOpen, setAboutOpen] = useState<boolean>(false);
+  const { accounts, selectAccount, disconnect } = useHomeBridge();
+  // const [aboutOpen, setAboutOpen] = useState<boolean>(false);
   const [walletConnecting, setWalletConnecting] = useState(false);
-  const [changeNetworkOpen, setChangeNetworkOpen] = useState<boolean>(false);
+  // const [changeNetworkOpen, setChangeNetworkOpen] = useState<boolean>(false);
   const [preflightModalOpen, setPreflightModalOpen] = useState<boolean>(false);
 
   const [preflightDetails, setPreflightDetails] = useState<PreflightDetails>({
@@ -432,8 +520,8 @@ const TransferPage = () => {
   });
 
   useEffect(() => {
-    setWalletType("select");
-  }, []);
+    if (walletType === "unset") setWalletType("select");
+  }, [walletType, setWalletType]);
 
   return (
     <article className={classes.root}>
@@ -451,7 +539,7 @@ const TransferPage = () => {
             </span>
           )}
         </div>
-        {walletType !== "unset" && walletType !== "Ethereum" && !isReady ? (
+        {!isReady ? (
           <div className={classes.selectArea}>
             <WalletLogo className={classes.walletLogo} />
             <div className={classes.walletTitle}>
@@ -476,7 +564,7 @@ const TransferPage = () => {
             </div>
           </div>
         ) : (
-          <>
+          <div className={classes.transferArea}>
             <div className={classes.walletArea}>
               {!isReady ? (
                 // <Button
@@ -499,22 +587,32 @@ const TransferPage = () => {
               ) : (
                 <section className={classes.connected}>
                   <div>
-                    <Typography variant="body1">Home network</Typography>
-                    <Typography
+                    <div>Home network:</div>
+                    <div
                       className={classes.changeButton}
-                      variant="body1"
-                      onClick={() => setChangeNetworkOpen(true)}
+                      // onClick={() => setChangeNetworkOpen(true)}
+                      onClick={async () => {
+                        // TODO: trigger unsubscribes & clear all state
+                        await Promise.all([
+                          destinationBridge.disconnect(),
+                          disconnect(),
+                        ]);
+                        handleSetHomeChain(undefined);
+                        setDestinationChain(undefined);
+                        setWalletType("select");
+                      }}
                     >
                       Change
-                    </Typography>
+                    </div>
                   </div>
-                  <Typography
-                    component="h2"
-                    variant="h2"
-                    className={classes.networkName}
-                  >
+                  <div className={classes.networkName}>
+                    {walletType === "Ethereum" ? (
+                      <EthIcon className={classes.networkIcon} />
+                    ) : (
+                      <AtaIcon className={classes.networkIcon} />
+                    )}
                     {homeConfig?.name}
-                  </Typography>
+                  </div>
                 </section>
               )}
             </div>
@@ -564,7 +662,7 @@ const TransferPage = () => {
                 >
                   <section>
                     <SelectInput
-                      label="Destination Network"
+                      label="Destination Network:"
                       className={classes.generalInput}
                       disabled={!homeConfig}
                       options={destinationChains.map((dc) => ({
@@ -655,7 +753,7 @@ const TransferPage = () => {
                             preflightDetails.token === ""
                           }
                           name="tokenAmount"
-                          label="I want to send"
+                          label="I want to send:"
                         />
                       </div>
                     </section>
@@ -664,8 +762,8 @@ const TransferPage = () => {
                     <AddressInput
                       disabled={!destinationChainConfig}
                       name="receiver"
-                      label="Destination Address"
-                      placeholder="Please enter the receiving address"
+                      label="Destination Address:"
+                      placeholder="Please enter the receiving address..."
                       className={classes.address}
                       classNames={{
                         input: classes.addressInput,
@@ -688,27 +786,43 @@ const TransferPage = () => {
                     }
                   />
                   <section>
-                    <Button type="submit" fullsize variant="primary">
-                      Start transfer
+                    <Button
+                      className={classes.submitBtn}
+                      type="submit"
+                      fullsize
+                      variant="primary"
+                    >
+                      Start Transfer
                     </Button>
                   </section>
-                  <section>
-                    <QuestionCircleSvg
-                      onClick={() => setAboutOpen(true)}
-                      className={classes.faqButton}
-                    />
-                  </section>
+                  {/*<section>*/}
+                  {/*  <QuestionCircleSvg*/}
+                  {/*    onClick={() => setAboutOpen(true)}*/}
+                  {/*    className={classes.faqButton}*/}
+                  {/*  />*/}
+                  {/*</section>*/}
+                  <div className={classes.faq}>
+                    (If you face any questions regarding this transfer step,{" "}
+                    <a
+                      className={classes.faqLink}
+                      href="https://docs.ata.network/canarynet/userguide/token-bridge/"
+                      target="_blank"
+                    >
+                      check our documentation
+                    </a>
+                    )
+                  </div>
                 </Form>
               )}
             </Formik>
-          </>
+          </div>
         )}
 
-        <AboutDrawer open={aboutOpen} close={() => setAboutOpen(false)} />
-        <ChangeNetworkDrawer
-          open={changeNetworkOpen}
-          close={() => setChangeNetworkOpen(false)}
-        />
+        {/*<AboutDrawer open={aboutOpen} close={() => setAboutOpen(false)} />*/}
+        {/*<ChangeNetworkDrawer*/}
+        {/*  open={changeNetworkOpen}*/}
+        {/*  close={() => setChangeNetworkOpen(false)}*/}
+        {/*/>*/}
         <PreflightModalTransfer
           open={preflightModalOpen}
           close={() => setPreflightModalOpen(false)}
