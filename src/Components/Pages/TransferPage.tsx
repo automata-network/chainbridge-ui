@@ -842,6 +842,7 @@ const TransferPage = () => {
           tokenSymbol={preflightDetails?.tokenSymbol || ""}
           value={preflightDetails?.tokenAmount || 0}
         />
+        {/*<TransferActiveModal open={true} close={resetDeposit} />*/}
         <TransferActiveModal open={!!transactionStatus} close={resetDeposit} />
         {/* This is here due to requiring router */}
         <NetworkUnsupportedModal />
