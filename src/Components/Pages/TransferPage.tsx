@@ -6,7 +6,7 @@ import PreflightModalTransfer from "../../Modules/PreflightModalTransfer";
 import {
   Button,
   Typography,
-  QuestionCircleSvg,
+  // QuestionCircleSvg,
   SelectInput,
 } from "@chainsafe/common-components";
 import { Form, Formik } from "formik";
@@ -805,6 +805,7 @@ const TransferPage = () => {
                     (If you face any questions regarding this transfer step,{" "}
                     <a
                       className={classes.faqLink}
+                      rel="noopener noreferrer"
                       href="https://docs.ata.network/canarynet/userguide/token-bridge/"
                       target="_blank"
                     >

@@ -2,14 +2,14 @@ import React from "react";
 
 import { makeStyles, createStyles, ITheme } from "@chainsafe/common-theme";
 import {
-  Button,
+  // Button,
   ExclamationCircleSvg,
   ProgressBar,
   Typography,
 } from "@chainsafe/common-components";
 import CustomModal from "../Components/Custom/CustomModal";
 import { useChainbridge } from "../Contexts/ChainbridgeContext";
-import { EvmBridgeConfig } from "../chainbridgeConfig";
+// import { EvmBridgeConfig } from "../chainbridgeConfig";
 
 const useStyles = makeStyles(
   ({ animation, constants, palette, typography }: ITheme) =>
@@ -224,7 +224,7 @@ const TransferActiveModal: React.FC<ITransferActiveModalProps> = ({
     homeConfig,
     destinationChainConfig,
     depositAmount,
-    transferTxHash,
+    // transferTxHash,
     selectedToken,
     tokens,
   } = useChainbridge();
