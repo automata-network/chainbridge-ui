@@ -295,7 +295,7 @@ const useStyles = makeStyles(({ constants, palette }: ITheme) =>
         fontWeight: 400,
         color: "#7D7D7D",
       },
-      "& > div > div": {
+      "& > div > div:first-of-type": {
         height: "45px",
       },
       "& > div > div > div > div": {
