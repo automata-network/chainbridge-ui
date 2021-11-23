@@ -195,9 +195,11 @@ const useStyles = makeStyles(
         top: 0,
         left: 0,
         width: "100%",
+        "& > .primary": {
+          background: `${palette.additional["transactionModal"][1]} !important`,
+        },
         "& > *": {
           borderRadius: "0 !important",
-          background: `${palette.additional["transactionModal"][1]} !important`,
           "&  >  *": {
             borderRadius: "0 !important",
             background: `${palette.additional["transactionModal"][1]} !important`,
