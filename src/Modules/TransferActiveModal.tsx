@@ -197,6 +197,7 @@ const useStyles = makeStyles(
         width: "100%",
         "& > *": {
           borderRadius: "0 !important",
+          background: `${palette.additional["transactionModal"][1]} !important`,
           "&  >  *": {
             borderRadius: "0 !important",
             background: `${palette.additional["transactionModal"][1]} !important`,
@@ -241,8 +242,7 @@ const TransferActiveModal: React.FC<ITransferActiveModalProps> = ({
         className={classes.progress}
         size="small"
         variant="primary"
-        progress={-1}
-        // progress={transactionStatus !== "Transfer Completed" ? -1 : 100}
+        progress={transactionStatus !== "Transfer Completed" ? -1 : 100}
       />
       <section className={classes.content}>
         <div className={classes.header}>
