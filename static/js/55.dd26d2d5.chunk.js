@@ -1,2 +1,0 @@
-(this["webpackJsonp@chainsafe/chainbridge-ui"]=this["webpackJsonp@chainsafe/chainbridge-ui"]||[]).push([[55],{1025:function(i,n){},1031:function(i,n){}}]);
-//# sourceMappingURL=55.dd26d2d5.chunk.js.map
