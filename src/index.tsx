@@ -1,9 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
-import "./assets/styles/index.scss";
-import "./assets/styles/override.scss";
-
+import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
