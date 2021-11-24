@@ -28,12 +28,9 @@ export const lightTheme = createTheme({
           2: "#262626", // Button color
         },
         transactionModal: {
-          // 1: "#597EF7", // border //geekblue5
-          // 2: "#85A5FF", // indicator border //geekblue4
-          // 3: "#2F54EB", // indicator text //geekblue6
-          1: "#E98F39", // border //geekblue5
-          2: "#E98F39", // indicator border //geekblue4
-          3: "#E98F39", // indicator text //geekblue6
+          1: "#597EF7", // border //geekblue5
+          2: "#85A5FF", // indicator border //geekblue4
+          3: "#2F54EB", // indicator text //geekblue6
         },
       },
     },

@@ -50,64 +50,26 @@ export const chainbridgeConfig: ChainbridgeConfig = {
   // Local GETH <> Local Substrate
   chains: [
     {
-      chainId: +((process.env.REACT_APP_ROPSTEN_CHAIN_ID as unknown) as number),
+      chainId: +((process.env
+        .REACT_APP_ETHEREUM_CHAIN_ID as unknown) as number),
       networkId: +((process.env
-        .REACT_APP_ROPSTEN_NETWORK_ID as unknown) as number),
-      name: process.env.REACT_APP_ROPSTEN_NETWORK_NAME as string,
+        .REACT_APP_ETHEREUM_NETWORK_ID as unknown) as number),
+      name: process.env.REACT_APP_ETHEREUM_NETWORK_NAME as string,
       decimals: 18,
-      bridgeAddress: process.env.REACT_APP_ROPSTEN_BRIDGE_ADDRESS as string,
+      bridgeAddress: process.env.REACT_APP_ETHEREUM_BRIDGE_ADDRESS as string,
       erc20HandlerAddress: process.env
-        .REACT_APP_ROPSTEN_ERC20_HANDLER_ADDRESS as string,
-      rpcUrl: process.env.REACT_APP_ROPSTEN_RPC_URL as string,
-      blockExplorer: process.env.REACT_APP_ROPSTEN_EXPLORER_URL as string,
+        .REACT_APP_ETHEREUM_ERC20_HANDLER_ADDRESS as string,
+      rpcUrl: process.env.REACT_APP_ETHEREUM_RPC_URL as string,
+      blockExplorer: process.env.REACT_APP_ETHEREUM_EXPLORER_URL as string,
       type: "Ethereum",
       nativeTokenSymbol: "rETH",
       tokens: [
         {
-          address: process.env.REACT_APP_ROPSTEN_ERC20_TOKEN_ADDRESS as string,
-          name: process.env.REACT_APP_ROPSTEN_ERC20_NAME as string,
-          symbol: process.env.REACT_APP_ROPSTEN_ERC20_SYMBOL as string,
+          address: process.env.REACT_APP_ETHEREUM_ERC20_TOKEN_ADDRESS as string,
+          name: process.env.REACT_APP_ETHEREUM_ERC20_NAME as string,
+          symbol: process.env.REACT_APP_ETHEREUM_ERC20_SYMBOL as string,
           // imageUri: ATAIcon,
-          resourceId: process.env.REACT_APP_ROPSTEN_RESOURCE_ID as string,
-        },
-        {
-          address: process.env
-            .REACT_APP_ROPSTEN_ERC20_ARB_TOKEN_ADDRESS as string,
-          name: process.env.REACT_APP_ROPSTEN_ERC20_ARB_NAME as string,
-          symbol: process.env.REACT_APP_ROPSTEN_ERC20_ARB_SYMBOL as string,
-          // imageUri: ATAIcon,
-          resourceId: process.env.REACT_APP_ROPSTEN_ARB_RESOURCE_ID as string,
-        },
-      ],
-    },
-    {
-      chainId: +((process.env.REACT_APP_KOVAN_CHAIN_ID as unknown) as number),
-      networkId: +((process.env
-        .REACT_APP_KOVAN_NETWORK_ID as unknown) as number),
-      name: process.env.REACT_APP_KOVAN_NETWORK_NAME as string,
-      decimals: 18,
-      bridgeAddress: process.env.REACT_APP_KOVAN_BRIDGE_ADDRESS as string,
-      erc20HandlerAddress: process.env
-        .REACT_APP_KOVAN_ERC20_HANDLER_ADDRESS as string,
-      rpcUrl: process.env.REACT_APP_KOVAN_RPC_URL as string,
-      blockExplorer: process.env.REACT_APP_KOVAN_EXPLORER_URL as string,
-      type: "Ethereum",
-      nativeTokenSymbol: "kETH",
-      tokens: [
-        {
-          address: process.env.REACT_APP_KOVAN_ERC20_TOKEN_ADDRESS as string,
-          name: process.env.REACT_APP_KOVAN_ERC20_NAME as string,
-          symbol: process.env.REACT_APP_KOVAN_ERC20_SYMBOL as string,
-          // imageUri: ATAIcon,
-          resourceId: process.env.REACT_APP_KOVAN_RESOURCE_ID as string,
-        },
-        {
-          address: process.env
-            .REACT_APP_KOVAN_ERC20_ARB_TOKEN_ADDRESS as string,
-          name: process.env.REACT_APP_KOVAN_ERC20_ARB_NAME as string,
-          symbol: process.env.REACT_APP_KOVAN_ERC20_ARB_SYMBOL as string,
-          // imageUri: ATAIcon,
-          resourceId: process.env.REACT_APP_KOVAN_ARB_RESOURCE_ID as string,
+          resourceId: process.env.REACT_APP_ETHEREUM_RESOURCE_ID as string,
         },
       ],
     },
@@ -136,13 +98,6 @@ export const chainbridgeConfig: ChainbridgeConfig = {
           name: process.env.REACT_APP_ATA_NATIVE_TOKEN_NAME as string,
           symbol: process.env.REACT_APP_ATA_NATIVE_TOKEN_SYMBOL as string,
           resourceId: "substratsubme-native",
-        },
-        {
-          address: process.env.REACT_APP_KOVAN_ERC20_TOKEN_ADDRESS as string,
-          name: process.env.REACT_APP_KOVAN_ERC20_NAME as string,
-          symbol: process.env.REACT_APP_KOVAN_ERC20_SYMBOL as string,
-          // imageUri: ATAIcon,
-          resourceId: process.env.REACT_APP_KOVAN_RESOURCE_ID as string,
         },
       ],
     },

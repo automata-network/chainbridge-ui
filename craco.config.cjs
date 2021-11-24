@@ -1,5 +1,4 @@
 const TerserPlugin = require("terser-webpack-plugin");
-const sassResourcesLoader = require("craco-sass-resources-loader");
 
 module.exports = {
   babel: {
@@ -52,15 +51,4 @@ module.exports = {
       devtool: "source-map",
     }),
   },
-  plugins: [
-    {
-      plugin: sassResourcesLoader,
-      options: {
-        resources: [
-          "./src/assets/styles/common/_var.scss",
-          "./src/assets/styles/common/_mixin.scss",
-        ],
-      },
-    },
-  ],
 };

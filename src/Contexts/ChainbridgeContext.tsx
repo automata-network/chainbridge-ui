@@ -11,7 +11,7 @@ import {
   Vote,
 } from "./NetworkManagerContext";
 import { useHomeBridge } from "./HomeBridgeContext";
-// import NetworkSelectModal from "../Modules/NetworkSelectModal";
+import NetworkSelectModal from "../Modules/NetworkSelectModal";
 
 interface IChainbridgeContextProps {
   children: React.ReactNode | React.ReactNode[];
@@ -169,7 +169,7 @@ const ChainbridgeProvider = ({ children }: IChainbridgeContextProps) => {
         checkSupplies,
       }}
     >
-      {/*<NetworkSelectModal />*/}
+      <NetworkSelectModal />
       {children}
     </ChainbridgeContext.Provider>
   );
