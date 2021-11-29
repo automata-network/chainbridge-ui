@@ -53,6 +53,10 @@
           );
         }
       })(window.location);
+      // TODO You need to inject env variables to browser
+      window.REACT_APP_ROPSTEN_RPC_URL = "%REACT_APP_ROPSTEN_RPC_URL%";
+      window.REACT_APP_KOVAN_RPC_URL = "%REACT_APP_KOVAN_RPC_URL%";
+      window.REACT_APP_ETHEREUM_RPC_URL = "%REACT_APP_ETHEREUM_RPC_URL%";
     </script>
     <!-- End Single Page Apps for GitHub Pages -->
   </head>
