@@ -2,7 +2,7 @@ name: Build and deploy
 
 on:
   push:
-    branches: [finitestate-bridge-test]
+    branches: [main]
 
 jobs:
   build-ethereum-kovan:
@@ -17,9 +17,8 @@ jobs:
           REACT_APP_ROPSTEN_RPC_URL: ${{ secrets.FST_ROPSTEN_RPC_URL }}
           REACT_APP_KOVAN_RPC_URL: ${{ secrets.FST_KOVAN_RPC_URL }}
         run: |
-          rm -f .env
-          cp .env.dev .env
-          cat .env
+          rm -f ./public/chainbridge-runtime-config.js
+          cp ./config/chainbridge-runtime-config.fs.js ./public/chainbridge-runtime-config.js
           yarn install
           yarn build
       - name: Deploy
