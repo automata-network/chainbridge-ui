@@ -8,6 +8,12 @@
     <meta name="description" content="AutomataTokenBridge" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicon.ico" />
     <!-- Runtime environment variables -->
+    <script type="text/javascript">
+      // TODO You need to inject env variables to browser
+      window.REACT_APP_ROPSTEN_RPC_URL = "%REACT_APP_ROPSTEN_RPC_URL%";
+      window.REACT_APP_KOVAN_RPC_URL = "%REACT_APP_KOVAN_RPC_URL%";
+      window.REACT_APP_ETHEREUM_RPC_URL = "%REACT_APP_ETHEREUM_RPC_URL%";
+    </script>
     <script src="%PUBLIC_URL%/chainbridge-runtime-config.js"></script>
     <!--
       manifest.json provides metadata used when your web app is installed on a
@@ -53,10 +59,6 @@
           );
         }
       })(window.location);
-      // TODO You need to inject env variables to browser
-      window.REACT_APP_ROPSTEN_RPC_URL = "%REACT_APP_ROPSTEN_RPC_URL%";
-      window.REACT_APP_KOVAN_RPC_URL = "%REACT_APP_KOVAN_RPC_URL%";
-      window.REACT_APP_ETHEREUM_RPC_URL = "%REACT_APP_ETHEREUM_RPC_URL%";
     </script>
     <!-- End Single Page Apps for GitHub Pages -->
   </head>
