@@ -671,8 +671,6 @@ const TransferPage = () => {
                       }))}
                       onChange={(value) => {
                         setDestinationChain(value);
-                        console.log(tokens);
-                        console.log(homeConfig);
                       }}
                       value={destinationChainConfig?.chainId}
                     />
@@ -734,7 +732,7 @@ const TransferPage = () => {
                             }))
                             .filter((item) => {
                               let token = homeConfig?.tokens.find(
-                                (i) => i.address === item.value
+                                (i) => i.symbol === tokens[item.value].symbol
                               );
                               if (token) {
                                 if (!destinationChainConfig?.chainId)
