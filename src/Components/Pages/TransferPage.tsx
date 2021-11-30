@@ -669,7 +669,11 @@ const TransferPage = () => {
                         label: dc.name,
                         value: dc.chainId,
                       }))}
-                      onChange={(value) => setDestinationChain(value)}
+                      onChange={(value) => {
+                        setDestinationChain(value);
+                        console.log(tokens);
+                        console.log(homeConfig);
+                      }}
                       value={destinationChainConfig?.chainId}
                     />
                   </section>
