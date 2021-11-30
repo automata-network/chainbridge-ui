@@ -713,20 +713,39 @@ const TransferPage = () => {
                           });
                         }}
                         options={
-                          Object.keys(tokens).map((t) => ({
-                            value: t,
-                            label: (
-                              <div className={classes.tokenItem}>
-                                {tokens[t]?.imageUri && (
-                                  <img
-                                    src={showImageUrl(tokens[t]?.imageUri)}
-                                    alt={tokens[t]?.symbol}
-                                  />
-                                )}
-                                <span>{tokens[t]?.symbol || t}</span>
-                              </div>
-                            ),
-                          })) || []
+                          Object.keys(tokens)
+                            .map((t) => ({
+                              value: t,
+                              label: (
+                                <div className={classes.tokenItem}>
+                                  {tokens[t]?.imageUri && (
+                                    <img
+                                      src={showImageUrl(tokens[t]?.imageUri)}
+                                      alt={tokens[t]?.symbol}
+                                    />
+                                  )}
+                                  <span>{tokens[t]?.symbol || t}</span>
+                                </div>
+                              ),
+                            }))
+                            .filter((item) => {
+                              let token = homeConfig?.tokens.find(
+                                (i) => i.address === item.value
+                              );
+                              if (token) {
+                                if (!destinationChainConfig?.chainId)
+                                  return false;
+                                if (token.destChainId) {
+                                  return token.destChainId.includes(
+                                    destinationChainConfig!.chainId
+                                  );
+                                } else {
+                                  return true;
+                                }
+                              } else {
+                                return false;
+                              }
+                            }) || []
                         }
                       />
                     </section>

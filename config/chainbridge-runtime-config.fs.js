@@ -20,6 +20,7 @@ window.__RUNTIME_CONFIG__ = {
             // imageUri: "ETHIcon",
             resourceId:
               "0x0000000000000000000000907f34dd7caD6e8752dDaCF365aa25c7FA701dd903",
+            destChainId: [4, 254],
           },
           {
             address: "0xe0C19A39d750Bc83287f0F71958EE3b9AA50503d",
@@ -28,6 +29,7 @@ window.__RUNTIME_CONFIG__ = {
             // imageUri: "ETHIcon",
             resourceId:
               "0x0000000000000000000000e0C19A39d750Bc83287f0F71958EE3b9AA50503d03",
+            destChainId: [4],
           },
         ],
       },
@@ -50,6 +52,7 @@ window.__RUNTIME_CONFIG__ = {
             // imageUri: "WETHIcon",
             resourceId:
               "0x0000000000000000000000907f34dd7caD6e8752dDaCF365aa25c7FA701dd903",
+            destChainId: [3, 254],
           },
           {
             address: "0x62E01587D7FCd0B93467d0086574967EE4F6039B",
@@ -58,6 +61,7 @@ window.__RUNTIME_CONFIG__ = {
             // imageUri: "WETHIcon",
             resourceId:
               "0x0000000000000000000000e0C19A39d750Bc83287f0F71958EE3b9AA50503d03",
+            destChainId: [3],
           },
         ],
       },
@@ -84,14 +88,7 @@ window.__RUNTIME_CONFIG__ = {
             name: "FiniteState",
             symbol: "FST",
             resourceId: "substratsubme-native",
-          },
-          {
-            address: "0xAE62312951b9518Df0c7C6Ea475E08EB443e88d7",
-            name: "TestMultiChain",
-            symbol: "TMC",
-            // imageUri: ATAIcon,
-            resourceId:
-              "0x0000000000000000000000907f34dd7caD6e8752dDaCF365aa25c7FA701dd903",
+            destChainId: [3, 4],
           },
         ],
       },
