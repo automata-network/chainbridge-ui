@@ -12,6 +12,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+          cache: "npm"
+          check-latest: true
+
       - name: Install and Build
         env:
           REACT_APP_ROPSTEN_RPC_URL: ${{ secrets.FST_ROPSTEN_RPC_URL }}
@@ -19,8 +25,6 @@ jobs:
         run: |
           rm -f ./public/chainbridge-runtime-config.js
           cp ./config/chainbridge-runtime-config.fs.js ./public/chainbridge-runtime-config.js
-          sudo apt update
-          sudo apt-get install libudev-dev
           yarn install
           yarn build
       - name: Deploy
