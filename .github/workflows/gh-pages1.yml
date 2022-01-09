@@ -19,7 +19,7 @@ jobs:
         run: |
           rm -f ./public/chainbridge-runtime-config.js
           cp ./config/chainbridge-runtime-config.fs.js ./public/chainbridge-runtime-config.js
-          apt-get install libudev-dev
+          sudo apt-get install libudev-dev
           yarn install
           yarn build
       - name: Deploy
