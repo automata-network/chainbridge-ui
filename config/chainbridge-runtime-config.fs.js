@@ -20,7 +20,7 @@ window.__RUNTIME_CONFIG__ = {
             // imageUri: "ETHIcon",
             resourceId:
               "0x0000000000000000000000907f34dd7caD6e8752dDaCF365aa25c7FA701dd903",
-            destChainId: [4, 254],
+            destChainId: [42, 254],
           },
           {
             address: "0xe0C19A39d750Bc83287f0F71958EE3b9AA50503d",
@@ -29,12 +29,12 @@ window.__RUNTIME_CONFIG__ = {
             // imageUri: "ETHIcon",
             resourceId:
               "0x0000000000000000000000e0C19A39d750Bc83287f0F71958EE3b9AA50503d03",
-            destChainId: [4],
+            destChainId: [42],
           },
         ],
       },
       {
-        chainId: 4,
+        chainId: 42,
         networkId: 42,
         name: "Ethereum Kovan",
         decimals: 18,
@@ -88,7 +88,7 @@ window.__RUNTIME_CONFIG__ = {
             name: "FiniteState",
             symbol: "FST",
             resourceId: "substratsubme-native",
-            destChainId: [3, 4],
+            destChainId: [3, 42],
           },
         ],
       },
