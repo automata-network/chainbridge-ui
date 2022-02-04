@@ -56,7 +56,14 @@ export const EVMDestinationAdaptorProvider = ({
           null,
           null
         ),
-        (originChainId, depositNonce, status, resourceId, dataHash, tx) => {
+        (
+          originChainId: string,
+          depositNonce: string,
+          status: any,
+          resourceId: string,
+          dataHash: string,
+          tx: any
+        ) => {
           switch (BigNumber.from(status).toNumber()) {
             case 1:
               tokensDispatch({
@@ -89,7 +96,13 @@ export const EVMDestinationAdaptorProvider = ({
           null,
           null
         ),
-        async (originChainId, depositNonce, status, resourceId, tx) => {
+        async (
+          originChainId: string,
+          depositNonce: string,
+          status: any,
+          resourceId: string,
+          tx: any
+        ) => {
           const txReceipt = await tx.getTransactionReceipt();
           if (txReceipt.status === 1) {
             setDepositVotes(depositVotes + 1);

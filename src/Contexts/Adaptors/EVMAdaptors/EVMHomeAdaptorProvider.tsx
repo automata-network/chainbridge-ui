@@ -382,7 +382,7 @@ export const EVMHomeAdaptorProvider = ({
             token.resourceId,
             null
           ),
-          (destChainId, resourceId, depositNonce) => {
+          (destChainId: string, resourceId: string, depositNonce: string) => {
             setDepositNonce(`${depositNonce.toString()}`);
             setTransactionStatus("In Transit");
           }
