@@ -58,9 +58,16 @@ export const EVMDestinationAdaptorProvider = ({
           dataHash: string,
           tx: any
         ) => {
+          console.log(
+            "ProposalEvent event",
+            { originChainId, _depositNonce },
+            "compare to",
+            { chainId: homeChainConfig.chainId, depositNonce }
+          );
+
           if (
             originChainId === homeChainConfig.chainId &&
-            BigNumber.from(_depositNonce) === BigNumber.from(depositNonce)
+            BigNumber.from(_depositNonce).eq(BigNumber.from(depositNonce))
           ) {
             switch (BigNumber.from(status).toNumber()) {
               case 1:
@@ -97,9 +104,16 @@ export const EVMDestinationAdaptorProvider = ({
           resourceId: string,
           tx: any
         ) => {
+          console.log(
+            "ProposalVote event",
+            { originChainId, _depositNonce },
+            "compare to",
+            { chainId: homeChainConfig.chainId, depositNonce }
+          );
+
           if (
             originChainId === homeChainConfig.chainId &&
-            BigNumber.from(_depositNonce) === BigNumber.from(depositNonce)
+            BigNumber.from(_depositNonce).eq(BigNumber.from(depositNonce))
           ) {
             const txReceipt = await tx.getTransactionReceipt();
             if (txReceipt.status === 1) {
