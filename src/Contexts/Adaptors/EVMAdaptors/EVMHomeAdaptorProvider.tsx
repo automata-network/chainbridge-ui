@@ -379,6 +379,13 @@ export const EVMHomeAdaptorProvider = ({
         homeBridge.once(
           homeBridge.filters.Deposit(null, null, null, address, null, null),
           (destChainId: number, resourceId: string, depositNonce: string) => {
+            console.log(
+              "Deposit event",
+              { destChainId, resourceId },
+              "compare to",
+              { destinationChainId, "token.resourceId": token.resourceId }
+            );
+
             if (
               destChainId === destinationChainId &&
               resourceId.toLowerCase() === token.resourceId.toLowerCase()
