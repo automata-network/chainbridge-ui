@@ -381,7 +381,7 @@ export const EVMHomeAdaptorProvider = ({
           (destChainId: number, resourceId: string, depositNonce: string) => {
             if (
               destChainId === destinationChainId &&
-              token.resourceId === resourceId
+              resourceId.toLowerCase() === token.resourceId.toLowerCase()
             ) {
               setDepositNonce(`${depositNonce.toString()}`);
               setTransactionStatus("In Transit");
