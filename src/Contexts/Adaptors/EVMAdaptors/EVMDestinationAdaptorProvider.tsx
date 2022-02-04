@@ -49,71 +49,70 @@ export const EVMDestinationAdaptorProvider = ({
       depositNonce
     ) {
       destinationBridge.on(
-        destinationBridge.filters.ProposalEvent(
-          homeChainConfig.chainId,
-          BigNumber.from(depositNonce),
-          null,
-          null,
-          null
-        ),
+        destinationBridge.filters.ProposalEvent(null, null, null, null),
         (
-          originChainId: string,
-          depositNonce: string,
+          originChainId: number,
+          _depositNonce: string,
           status: any,
           resourceId: string,
           dataHash: string,
           tx: any
         ) => {
-          switch (BigNumber.from(status).toNumber()) {
-            case 1:
-              tokensDispatch({
-                type: "addMessage",
-                payload: `Proposal created on ${destinationChainConfig.name}`,
-              });
-              break;
-            case 2:
-              tokensDispatch({
-                type: "addMessage",
-                payload: `Proposal has passed. Executing...`,
-              });
-              break;
-            case 3:
-              setTransactionStatus("Transfer Completed");
-              setTransferTxHash(tx.transactionHash);
-              break;
-            case 4:
-              setTransactionStatus("Transfer Aborted");
-              setTransferTxHash(tx.transactionHash);
-              break;
+          if (
+            originChainId === homeChainConfig.chainId &&
+            BigNumber.from(_depositNonce) === BigNumber.from(depositNonce)
+          ) {
+            switch (BigNumber.from(status).toNumber()) {
+              case 1:
+                tokensDispatch({
+                  type: "addMessage",
+                  payload: `Proposal created on ${destinationChainConfig.name}`,
+                });
+                break;
+              case 2:
+                tokensDispatch({
+                  type: "addMessage",
+                  payload: `Proposal has passed. Executing...`,
+                });
+                break;
+              case 3:
+                setTransactionStatus("Transfer Completed");
+                setTransferTxHash(tx.transactionHash);
+                break;
+              case 4:
+                setTransactionStatus("Transfer Aborted");
+                setTransferTxHash(tx.transactionHash);
+                break;
+            }
           }
         }
       );
 
       destinationBridge.on(
-        destinationBridge.filters.ProposalVote(
-          homeChainConfig.chainId,
-          BigNumber.from(depositNonce),
-          null,
-          null
-        ),
+        destinationBridge.filters.ProposalVote(null, null, null, null),
         async (
-          originChainId: string,
-          depositNonce: string,
+          originChainId: number,
+          _depositNonce: string,
           status: any,
           resourceId: string,
           tx: any
         ) => {
-          const txReceipt = await tx.getTransactionReceipt();
-          if (txReceipt.status === 1) {
-            setDepositVotes(depositVotes + 1);
+          if (
+            originChainId === homeChainConfig.chainId &&
+            BigNumber.from(_depositNonce) === BigNumber.from(depositNonce)
+          ) {
+            const txReceipt = await tx.getTransactionReceipt();
+            if (txReceipt.status === 1) {
+              setDepositVotes(depositVotes + 1);
+            }
+            tokensDispatch({
+              type: "addMessage",
+              payload: {
+                address: String(txReceipt.from),
+                signed: txReceipt.status === 1 ? "Confirmed" : "Rejected",
+              },
+            });
           }
-          tokensDispatch({
-            type: "addMessage",
-            payload: {
-              address: String(txReceipt.from),
-              signed: txReceipt.status === 1 ? "Confirmed" : "Rejected",
-            },
-          });
         }
       );
     }
