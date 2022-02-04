@@ -377,11 +377,7 @@ export const EVMHomeAdaptorProvider = ({
           ).wait(1);
         }
         homeBridge.once(
-          homeBridge.filters.Deposit(
-            destinationChainId,
-            token.resourceId,
-            null
-          ),
+          homeBridge.filters.Deposit(null, null, null, address, null, null),
           (destChainId: string, resourceId: string, depositNonce: string) => {
             setDepositNonce(`${depositNonce.toString()}`);
             setTransactionStatus("In Transit");
