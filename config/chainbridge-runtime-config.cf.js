@@ -34,6 +34,7 @@ window.__RUNTIME_CONFIG__ = {
         chainbridgePalletName: "chainBridge",
         ss58Prefix: "11820",
         bridgeFeeValue: 0,
+        bridgeFeeFunctionName: "bridgeFee",
         transferPalletName: "bridgeTransfer",
         transferFunctionName: "transferNative",
         typesFileName: "bridgeTypes.json",
